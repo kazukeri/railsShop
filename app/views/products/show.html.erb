@@ -1,0 +1,30 @@
+<% title "Produkt" %>
+
+<p>
+  <strong>Nazwa:</strong>
+  <%= @product.title %>
+</p>
+<p>
+  <strong>Skrócony opis:</strong>
+  <%= @product.shortdescription %>
+</p>
+<p>
+  <strong>Opis:</strong>
+  <%= @product.description %>
+</p>
+<p>
+  <strong>Cena:</strong>
+  <%= @product.price %> zł
+</p>
+<p>
+  <strong>Kategoria:</strong>
+  <%= @product.category.title %>
+</p>
+<% if @product.photo.exists? then %>
+	<%= image_tag @product.photo.url(:small) %>
+<% end %>
+<p>
+  <%= link_to "Zmień", edit_product_path(@product) %> |
+  <%= link_to "Usuń", @product, :confirm => 'Na pewno?', :method => :delete %> |
+  <%= link_to "Lista kategorii", products_path %>
+</p>

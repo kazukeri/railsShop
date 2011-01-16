@@ -1,0 +1,21 @@
+<% title "Produkty" %>
+
+<table class='systemTable'>
+  <tr>
+    <th>Nazwa</th>
+    <th>Cena</th>
+    <th>Kategoria</th>
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <td><%= product.title %></td>
+      <td><%= product.price %></td>
+      <td><%= product.category.title %></td>
+      <td><%= link_to "Szczegóły", product %></td>
+      <td><%= link_to "Zmień", edit_product_path(product) %></td>
+      <td><%= link_to "Usuń", product, :confirm => 'Na pewno?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Dodaj produkt", new_product_path %></p>

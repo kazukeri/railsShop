@@ -1,0 +1,33 @@
+<%= form_for @product, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  
+   <p>
+    <%= f.label 'Zdjęcie produktu' %><br />
+    <%= f.file_field :photo %>
+  </p> 
+  
+  
+  
+  <p>
+    <%= f.label 'Nazwa produktu' %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label 'Skrócony opis' %><br />
+    <%= f.text_area :shortdescription %>
+  </p>
+  <p>
+    <%= f.label 'Pełny opis' %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label 'Cena' %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label 'Kategoria' %><br />
+    
+	<%= select ('product', 'category_id', @categories.map {|u| [u.title,u.id]}) %>
+  </p>
+  <p><%= f.submit 'Zapisz' %></p>
+<% end %>
