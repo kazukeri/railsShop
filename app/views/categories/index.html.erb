@@ -1,0 +1,17 @@
+<% title "Kategorie" %>
+
+<table class='systemTable'>
+  <tr>
+    <th>Nazwa</th>
+  </tr>
+  <% for category in @categories %>
+    <tr>
+      <td><%= category.title %></td>
+      <td><%= link_to "Szczegóły", category %></td>
+      <td><%= link_to "Zmień", edit_category_path(category) %></td>
+      <td><%= link_to "Usuń", category, :confirm => 'Na pewno?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Dodaj kategorię", new_category_path %></p>

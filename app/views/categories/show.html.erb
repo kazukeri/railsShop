@@ -1,0 +1,12 @@
+<% title "Kategoria" %>
+
+<p>
+  <strong>Nazwa:</strong>
+  <%= @category.title %>
+</p>
+
+<p>
+  <%= link_to "Zmień", edit_category_path(@category) %> |
+  <%= link_to "Usuń", @category, :confirm => 'Na pewno?', :method => :delete %> |
+  <%= link_to "Lista kategorii", categories_path %>
+</p>
