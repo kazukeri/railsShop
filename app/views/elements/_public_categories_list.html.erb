@@ -1,0 +1,8 @@
+<div>
+<div class='categoriesTitle'></div>
+	<% for category in @categories %>
+		<div class='categoriesItem'>
+			<div><%= link_to category.title, :controller => "categories", :action => "public_show", :id=>category.id %></div>
+		</div>
+	<% end %>			
+</div>

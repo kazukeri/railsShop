@@ -1,0 +1,20 @@
+<div class="navigation">
+	Strona główna
+</div>
+<% title "Strona główna",false %>
+
+
+<table>
+	<tr>
+		<td class='categoriesTd'>
+			<%= render 'elements/public_categories_list' %>			
+		</td>
+		<td style="vertical-align:top;">
+			<h2>Najnowsze produkty</h2>
+			<% for product in @products %>
+				<%= render 'elements/public_small_product', :product => product %>
+			<% end %>			
+		</td>
+	</tr>
+</table>
+

@@ -1,0 +1,19 @@
+<div class='smallProductContainer'>
+	
+<table><tr>
+	<td style="width:12px; text-align:center;">
+	<div class="smallProductPhoto">
+		<% if product.photo.exists? then %>
+			<%= image_tag product.photo.url(:thumb) %>
+		<% end %>	
+	</div>	
+	</td>
+	<td>
+	
+		<div class='smallProductTitle'><%= link_to product.title, :controller => "products", :action => "public_show", :id => product.id %></div>
+		<div class="price"><%= product.price %> zł</div>
+		<div><%= product.shortdescription %></div>
+	
+	</td>	
+</tr></table>	
+</div>

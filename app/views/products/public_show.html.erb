@@ -1,0 +1,56 @@
+<div class="navigation">
+	<%= link_to 'Strona główna', :controller => "categories", :action => "main" %> &gt; 
+	<%= link_to @product.category.title, :controller => "categories", :action => "public_show", :id => @product.category.id %>
+	&gt; <%= @product.title %>
+</div>
+
+<% title @product.title,false %>
+
+
+
+<table>
+	<tr>
+		<td class='categoriesTd'>
+			<%= render 'elements/public_categories_list' %>
+		</td>
+		<td style="vertical-align:top;">
+		<h2><%= @product.title %></h2>
+			<table><tr>
+				<td style="width:120px; text-align:center;">
+					<div class="smallProductPhoto">
+						<% if @product.photo.exists? then %>
+							<%= image_tag @product.photo.url(:thumb) %>
+						<% end %>	
+					</div>
+				</td>
+				<td>
+			
+					
+					<div class='price'><%= @product.price %> zł</div>
+					<div><%= @product.shortdescription %></div>
+					<% if logged_in? %>
+						<%= form_for :tobasket,:url => { :controller =>"orders",:action => "user_to_basket" } do |f| %>
+						    <%= f.hidden_field :id, :value => @product.id %>
+						  				
+						  <%= f.submit 'Do koszyka' %>
+						<% end %>
+					<% end %>
+										
+				</td>	
+			</tr></table>
+				
+			
+			<div style="font-weight:bold; font-size:14px;">Opis: </div>
+			<div style="padding:5px;"><%= @product.description %></div>	
+
+				<% if @product.photo.exists? then %>
+					<div style="font-weight:bold; font-size:14px;">Zdjęcie: </div>
+					<div style="padding:5px;"> 				
+						<%= image_tag @product.photo.url(:small) %>
+					</div>		
+				<% end %>				
+			
+		</td>
+	</tr>
+</table>
+

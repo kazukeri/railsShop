@@ -1,0 +1,23 @@
+<div class="navigation">
+	<%= link_to 'Strona główna', :controller => "categories", :action => "main" %> &gt; <%= @category.title %>
+</div> 
+<% title @category.title ,false %>
+
+
+<table>
+	<tr>
+		<td class='categoriesTd'>
+			<%= render 'elements/public_categories_list' %>
+		</td>
+		<td style="vertical-align:top;">
+<h2><%= @category.title %></h2>
+			<% for product in @products %>
+			
+				<%= render 'elements/public_small_product', :product => product %>
+
+			<% end %>	
+			<%= will_paginate @products %>		
+		</td>
+	</tr>
+</table>
+
