@@ -1,0 +1,13 @@
+one:
+  title: MyString
+  shortdescription: MyString
+  description: MyString
+  price: 1.5
+  category_id: 1
+
+two:
+  title: MyString
+  shortdescription: MyString
+  description: MyString
+  price: 1.5
+  category_id: 1

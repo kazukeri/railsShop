@@ -1,0 +1,26 @@
+<% title "Zamówienie" %>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+<div>Id zamówienia: <%= @order.id %> </div>
+<div>Data: <%= @order.created_at %> </div>
+<div style="font-weight:bold;">Produkty w zamówieniu:</div>
+<table style="width:350px;" class="systemTable">
+  <% for product in @order.products %>
+<tr>
+<td>
+	<% if product.photo.exists? then %>
+	<%= image_tag product.photo.url(:thumb) %>
+<% end %>
+</td>	
+<td>  <%= product.title %> </td> <td><%= product.price %> zł</td>
+</tr>
+	<% end %>
+</table>
+<p>
+  <%= link_to "Zmień", edit_order_path(@order) %> |
+  <%= link_to "Usuń", @order, :confirm => 'Na pewno?', :method => :delete %> |
+  <%= link_to "Lista zamówień", orders_path %>
+</p>

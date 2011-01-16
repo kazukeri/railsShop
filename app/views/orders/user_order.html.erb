@@ -1,0 +1,21 @@
+<% title "Moje konto", false %>
+<div class="navigation">
+	<%= link_to 'Strona główna', :controller => "categories", :action => "main" %> 
+	&gt;  <%= link_to 'Moje konto', :controller => "users", :action => "edit", :id =>current_user.id %> 
+	&gt; Zamówienie
+</div> 
+<div>Id zamówienia: <%= @order.id %> </div>
+<div>Data: <%= @order.created_at %> </div>
+<div style="font-weight:bold;">Produkty w zamówieniu:</div>
+<table style="width:350px;"  class='systemTable'>
+  <% for product in @order.products %>
+<tr>
+<td>
+	<% if product.photo.exists? then %>
+	<%= image_tag product.photo.url(:thumb) %>
+<% end %>
+</td>	
+<td>  <%= product.title %> </td> <td><%= product.price %> zł</td>
+</tr>
+	<% end %>
+	</table>

@@ -1,0 +1,21 @@
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :login,"Login" %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password,"Hasło" %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+  	  <%= f.label :password_confirmation,"Powtórz" %><br />
+  <%= f.password_field :password_confirmation %><br />
+</p>
+  <p><%= f.submit "Rejestruj" %></p>
+<% end %>

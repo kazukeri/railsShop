@@ -1,0 +1,19 @@
+<% title "Zamówienia" %>
+
+<table class='systemTable'>
+  <tr>
+  	<th>Data</th>
+    <th>Użytkownik</th>
+  </tr>
+  <% for order in @orders %>
+    <tr>
+    	<td><%= order.created_at %></td>
+      <td><%= order.user.email %></td>
+	  
+      <td><%= link_to "Szczegóły", order %></td>
+      <td><%= link_to "Zmień", edit_order_path(order) %></td>
+      <td><%= link_to "Usuń", order, :confirm => 'Na pewno?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+

@@ -1,0 +1,44 @@
+Autorzy :
+
+    * Piotr Wolf
+    * Michał Zawadzki
+
+03.12.2010
+
+[REPOZYTORIUM]
+sigma oraz
+https://github.com/kazukeri/railsShop
+
+[WPROWADZENIE]
+
+Projekt railsShop - sklep internetowy
+
+
+[CEL]
+
+Celem będzie stworzenie prostego sklepu internetowego "railsShop" przy użyciu ruby on rails 3.
+Sklep ma pozwalac na zakładanie kont klientów oraz dokonywanie zakupów.
+
+Sklep luźno wzorowany będzie na takich serwisach jak komputronik.pl lub agito.pl
+
+Projekt skierowany jest do wszystkich osób które korzystają z usług sklepów internetowych (ecommerce)
+
+[FUNKCJONALNOŚCI]
+
+Rola: Administrator
+-dodawanie/usuwanie/modyfikacja produktów
+-modyfikacja/usuwanie zarejestrowanych użytkowników
+-przeglądanie/modyfikacja zamówień w sklepie
+-dodawanie/usuwanie/modyfikacja kategorii produktów
+
+Rola: Klient zalogowany
+-składanie zamówień w sklepie
+-przeglądanie produktów w sklepie
+-wylogowanie
+-przeglądanie własnych zamówień
+
+Rola: Klient niezalogowany
+-przeglądanie produktów w sklepie
+-założenie konta
+-odzyskiwanie zapomnianego hasła
+-logowanie

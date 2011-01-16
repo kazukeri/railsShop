@@ -1,0 +1,37 @@
+<% title "Moje konto", false %>
+<div class="navigation">
+	<%= link_to 'Strona główna', :controller => "categories", :action => "main" %> -&gt; Moje konto
+</div> 
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+
+    
+    <%= f.hidden_field :login %>
+
+    <%= f.hidden_field :email %>
+ 
+
+  <p>
+    <%= f.label :password,"Hasło" %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+  	  <%= f.label :password_confirmation,"Powtórz" %><br />
+  <%= f.password_field :password_confirmation %><br />
+</p>
+  <p><%= f.submit "Zapisz" %></p>
+<% end %>
+
+<h2>Moje zamówienia:</h2>
+<table style="width:300px;" class='systemTable'>
+  <tr>
+    <th>W dniu</th>
+  </tr>
+  <% for order in @orders %>
+    <tr>
+      <td>
+	  <%= link_to order.created_at, :controller => "orders", :action => "user_order", :id => order.id %>
+	  </td>
+    </tr>
+  <% end %>
+</table>

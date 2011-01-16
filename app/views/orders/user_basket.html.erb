@@ -1,0 +1,34 @@
+<div class="navigation">
+	<%= link_to 'Strona główna', :controller => "categories", :action => "main" %>
+	&gt; Koszyk
+</div>
+
+<% title 'Koszyk', false %>
+<% if @in_basket == nil %>
+<div style="text-align:center;">
+	Koszyk jest pusty
+</div>
+<% else %>
+<p>Zawartość koszyka</p>
+<table class='systemTable'>
+	<% for product in @in_basket %>
+		<tr>
+			<td style="width:120px;"> 
+				<% if product.photo.exists? then %>
+					<%= image_tag product.photo.url(:thumb) %>
+				<% end %>	
+			</td>
+			<td> 
+				<%= product.title %> 
+			</td>
+			<td> 
+				<%= product.price %> zł 
+			</td>
+		</tr>
+	<% end %>
+</table>
+<p>
+<%= link_to 'Wyczyść koszyk', :controller => "orders", :action => "user_clear_basket" %> | 
+<%= link_to 'Złóż zamówienie', :controller => "orders", :action => "user_finalize_order" %>
+</p>
+<% end %>
