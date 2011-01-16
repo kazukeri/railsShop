@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %> - railsShop</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+  	<div id="user_nav">
+
+  <% if logged_in? %>
+     
+    <div class='userItem'>
+    <%= link_to "Wyloguj", logout_path %> 
+	</div>
+    <div class='userItem'>
+    <%= link_to "Moje konto", edit_user_path(current_user.id) %> 
+	</div>
+	 <div class='userItem'>
+	<%= link_to "Koszyk", :controller => "orders", :action => "user_basket" %>
+	</div>
+	<div style='float:right; text-align:right;'>
+	<strong><%= current_user.email %></strong> <%= current_user.role_type %> 
+	<% if current_user.role_type == 'admin' %>
+		<div id="admin_menu">
+			ADMIN MENU: 
+			<%= link_to 'Produkty', products_path %> | 
+			<%= link_to 'Kategorie', categories_path %> | 
+			<%= link_to 'Zamówienia', orders_path %> | 
+			<%= link_to 'Użytkownicy', users_path %> | 
+		</div>
+	<% end %>
+	</div>
+  <% else %>
+  <div class='userItem'>
+    <%= link_to "Rejestracja", signup_path %>
+  </div> 
+   <div class='userItem'>
+    <%= link_to "Logowanie", login_path %>
+   </div>
+  <% end %>
+  
+  
+  
+</div>
+<div id='header'>
+	<div style='height:155px;'>
+	</div>	
+	<div id="menu"><%= link_to 'Strona główna', :controller => "categories", :action => "main" %>
+	 &nbsp;&nbsp; <%= link_to 'O firmie', :controller => "categories", :action => "public_about" %>
+	 &nbsp;&nbsp; <%= link_to 'Kontakt', :controller => "categories", :action => "public_contact" %>
+	
+	</div>	
+</div>
+
+
+
+
+
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= yield %>
+    </div>
+<div id='footer'>
+	</div>	
+  </body>
+</html>
